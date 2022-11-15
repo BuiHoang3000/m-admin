@@ -4,7 +4,7 @@ import pool from '../config/db/index.js';
 export const get = async (req, res) => {
   try {
     const [category] = await pool.execute(
-      'SELECT id, pid, name, useYn FROM category',
+      'SELECT id, pid, name, useYn FROM category WHERE deleted="N"',
       [],
     );
 
@@ -45,9 +45,9 @@ export const update = async (req, res) => {
         if (category.uuid) {
           return pool
             .execute(
-              `Insert into category (pid, name, useYn) values (${
+              `Insert into category (pid, name, useYn, deleted) values (${
                 category.pid ? category.pid : null
-              }, '${category.name}', 'N')`,
+              }, '${category.name}', 'N', 'N')`,
             )
             .catch((err) => {
               throw new Error(err);
@@ -57,7 +57,7 @@ export const update = async (req, res) => {
             .execute(
               `Update category set pid=${category.pid || null}, name='${
                 category.name
-              }' where id=${category.id}`,
+              }', deleted='${category.deleted || 'N'}' where id=${category.id}`,
             )
             .catch((err) => {
               throw new Error(err);

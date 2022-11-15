@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2022 at 03:14 AM
+-- Generation Time: Nov 15, 2022 at 03:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -31,20 +31,21 @@ CREATE TABLE `category` (
   `id` int(20) NOT NULL,
   `pid` int(20) DEFAULT NULL,
   `name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `useYn` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `useYn` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `deleted` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `pid`, `name`, `useYn`) VALUES
-(1, NULL, 'Category 1', 'Y'),
-(2, NULL, 'Category 2', 'Y'),
-(3, 1, 'Category 1-1', 'Y'),
-(4, 1, 'Category 1-2', 'N'),
-(5, 2, 'Category 2-1', 'Y'),
-(6, 2, 'Category 2-2', 'N');
+INSERT INTO `category` (`id`, `pid`, `name`, `useYn`, `deleted`) VALUES
+(1, NULL, 'Category 1', 'Y', 'N'),
+(2, NULL, 'Category 2', 'Y', 'N'),
+(3, 1, 'Category 1-1', 'Y', 'N'),
+(4, 1, 'Category 1-2', 'N', 'N'),
+(5, 2, 'Category 2-2', 'Y', 'Y'),
+(15, 2, 'Category 2-3', 'N', 'N');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +65,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
