@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "6124a522-e6a6-4fc3-869f-1dde44adb1b2",
+		"name": "MG_Admin_Category",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12602133"
+	},
+	"item": [
+		{
+			"name": "Get category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save category",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"a1\",\r\n        \"name\": \"Category 1\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"N\"\r\n    },\r\n    {\r\n        \"id\": \"a2\",\r\n        \"name\": \"Category 2\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"\"\r\n    },\r\n    {\r\n        \"id\": \"a11\",\r\n        \"pid\": \"a1\",\r\n        \"name\": \"Category 1-1\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"N\"\r\n    },\r\n    {\r\n        \"id\": \"a12\",\r\n        \"pid\": \"a1\",\r\n        \"name\": \"Category 1-2\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"N\"\r\n    },\r\n    {\r\n        \"id\": \"a21\",\r\n        \"pid\": \"a2\",\r\n        \"name\": \"Category 2-1\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"N\"\r\n    },\r\n    {\r\n        \"id\": \"a22\",\r\n        \"pid\": \"a2\",\r\n        \"name\": \"Category 2-2\",\r\n        \"useYn\": \"Y\",\r\n        \"deleted\": \"Y\"\r\n    },\r\n    {\r\n        \"uuid\": \"a3\",\r\n        \"name\": \"Category 3\",\r\n        \"useYn\": \"N\"\r\n    },\r\n    {\r\n        \"uuid\": \"a31\",\r\n        \"pid\": \"a3\",\r\n        \"name\": \"Category 3-1\",\r\n        \"useYn\": \"N\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

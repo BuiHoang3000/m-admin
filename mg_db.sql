@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2022 at 03:56 AM
+-- Generation Time: Nov 15, 2022 at 09:28 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `id` int(20) NOT NULL,
-  `pid` int(20) DEFAULT NULL,
+  `id` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `pid` varchar(20) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `useYn` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `deleted` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL
@@ -40,12 +40,14 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `pid`, `name`, `useYn`, `deleted`) VALUES
-(1, NULL, 'Category 1', 'Y', 'N'),
-(2, NULL, 'Category 2', 'Y', 'N'),
-(3, 1, 'Category 1-1', 'Y', 'N'),
-(4, 1, 'Category 1-2', 'N', 'N'),
-(5, 2, 'Category 2-2', 'Y', 'Y'),
-(15, 2, 'Category 2-3', 'N', 'N');
+('a1', NULL, 'Category 1', 'Y', 'N'),
+('a11', 'a1', 'Category 1-1', 'Y', 'N'),
+('a12', 'a1', 'Category 1-2', 'N', 'N'),
+('a2', NULL, 'Category 2', 'Y', 'N'),
+('a22', 'a2', 'Category 2-2', 'Y', 'Y'),
+('a23', 'a2', 'Category 2-3', 'N', 'N'),
+('a24', 'a2', 'Category 2-4', 'N', 'N'),
+('a241', 'a24', 'Category 2-4-1', 'N', 'N');
 
 --
 -- Indexes for dumped tables
@@ -56,16 +58,6 @@ INSERT INTO `category` (`id`, `pid`, `name`, `useYn`, `deleted`) VALUES
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

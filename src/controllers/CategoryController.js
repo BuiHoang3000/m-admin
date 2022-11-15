@@ -45,9 +45,11 @@ export const update = async (req, res) => {
         if (category.uuid) {
           return pool
             .execute(
-              `Insert into category (pid, name, useYn, deleted) values (${
-                category.pid ? category.pid : null
-              }, '${category.name}', 'N', 'N')`,
+              `Insert into category (id, pid, name, useYn, deleted) values ('${
+                category.uuid
+              }', ${category.pid ? `'${category.pid}'` : null}, '${
+                category.name
+              }', 'N', 'N')`,
             )
             .catch((err) => {
               throw new Error(err);
@@ -55,9 +57,11 @@ export const update = async (req, res) => {
         } else {
           return pool
             .execute(
-              `Update category set pid=${category.pid || null}, name='${
-                category.name
-              }', deleted='${category.deleted || 'N'}' where id=${category.id}`,
+              `Update category set pid=${
+                category.pid ? `'${category.pid}'` : null
+              }, name='${category.name}', deleted='${
+                category.deleted || 'N'
+              }' where id='${category.id}'`,
             )
             .catch((err) => {
               throw new Error(err);
