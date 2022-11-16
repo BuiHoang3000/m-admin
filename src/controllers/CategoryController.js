@@ -29,6 +29,7 @@ export const get = async (req, res) => {
   }
 };
 
+// Create - Update - Delete category
 // [PUT] /api/category
 export const update = async (req, res) => {
   // Set init
