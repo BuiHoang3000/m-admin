@@ -44,17 +44,19 @@ export const update = async (req, res) => {
     Promise.all(
       data.map((category) => {
         if (category.uuid) {
-          return pool
-            .execute(
-              `Insert into category (id, pid, name, useYn, deleted) values ('${
-                category.uuid
-              }', ${category.pid ? `'${category.pid}'` : null}, '${
-                category.name
-              }', 'N', 'N')`,
-            )
-            .catch((err) => {
-              throw new Error(err);
-            });
+          if (category.deleted !== 'Y') {
+            return pool
+              .execute(
+                `Insert into category (id, pid, name, useYn, deleted) values ('${
+                  category.uuid
+                }', ${category.pid ? `'${category.pid}'` : null}, '${
+                  category.name
+                }', 'N', 'N')`,
+              )
+              .catch((err) => {
+                throw new Error(err);
+              });
+          }
         } else {
           return pool
             .execute(
