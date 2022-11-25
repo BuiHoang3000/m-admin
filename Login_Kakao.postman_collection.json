@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "0cc6209a-e370-4764-aacb-5e15be97936d",
+		"name": "Login_Kakao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12602133"
+	},
+	"item": [
+		{
+			"name": "Get Code Login Kakao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=d48236510b105bf316c72d4c6f415363&redirect_uri=http://localhost:3000",
+					"protocol": "https",
+					"host": [
+						"kauth",
+						"kakao",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "d48236510b105bf316c72d4c6f415363"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:3000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "d48236510b105bf316c72d4c6f415363",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:3000",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "jmKvq0mEEvD-QoyioouC-hZOg0YMuK1WeMkP17HiFdSonOaBYLs-IDYAt2u8McnSPcCP0Ao9cuoAAAGEqTbAIw",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://kauth.kakao.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"kauth",
+						"kakao",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Info User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "IybLlNNxLgaQbQz2qywX5UuIX6jgXSKya2fieX_sCj1zGAAAAYSsfU_v",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://kapi.kakao.com/v2/user/me",
+					"protocol": "https",
+					"host": [
+						"kapi",
+						"kakao",
+						"com"
+					],
+					"path": [
+						"v2",
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login App",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/login?code=zABewO5dKz0pK9vmRSaaDy8ONhJaYbKeYiq-zEtzcKQ0jc3Mu5odkEavHVnXkWoHB5DL3Qo9dBEAAAGErUnv4Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "zABewO5dKz0pK9vmRSaaDy8ONhJaYbKeYiq-zEtzcKQ0jc3Mu5odkEavHVnXkWoHB5DL3Qo9dBEAAAGErUnv4Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Duplicate Nickname",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nickname\": \"Hongmeo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/signup/check-duplicate-nickname",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"signup",
+						"check-duplicate-nickname"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Duplicate Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"thatkiemanhhung98@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/signup/check-duplicate-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"signup",
+						"check-duplicate-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nickname\": \"mg_vip\",\r\n    \"thumbnail_image_url\": \"http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_110x110.jpg\",\r\n    \"profile_image_url\": \"http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg\",\r\n    \"email\": \"mg_vip@gmail.com\",\r\n    \"rootEmail\": \"mg_vip@gmail.com\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

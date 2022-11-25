@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nickname": "Hongmao",
+    "thumbnail_image_url": "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_110x110.jpg",
+    "profile_image_url": "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg",
+    "email": "thatkiemanhhung98@gmail.com",
+    "rootEmail": "thatkiemanhhung98@gmail.com"
+  },
+  {
+    "nickname": "mg_vip",
+    "thumbnail_image_url": "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_110x110.jpg",
+    "profile_image_url": "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg",
+    "email": "mg_vip@gmail.com",
+    "rootEmail": "mg_vip@gmail.com",
+    "id": 2
+  }
+]
